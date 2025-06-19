@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.department.web
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 import org.openurp.qos.evaluation.department.web.action.{DepartEvaluateAction, DepartEvaluateSearchAction, EvaluateSwitchAction, SupervisiorEvaluateAction}
 
 class EvaluateModule extends BindModule {

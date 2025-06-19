@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.clazz.web.action.admin
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 import org.openurp.base.service.impl.SemesterServiceImpl
 import org.openurp.qos.evaluation.app.course.service.StdEvaluateSwitchService
 import org.openurp.qos.evaluation.clazz.web.action.*

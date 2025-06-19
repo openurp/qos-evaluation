@@ -5,7 +5,7 @@
         [#if courseEvalStats?size>0]
         bar.addItem("${b.text('action.delete')}",action.remove("确认删除?"));
          [#assign stat_first = courseEvalStats?first/]
-        bar.addItem("${b.text("action.export")}",action.exportData("crn:课程序号,course.code:课程代码,course.name:课程名称,teachDepart.name:开课院系," +
+        bar.addItem("${b.text("action.export")}",action.exportData("semester.schoolYear:学年度,semester.name:学期,crn:课程序号,course.code:课程代码,course.name:课程名称,teachDepart.name:开课院系," +
         "category.name:课程分类,teacher.staff.code:教师工号,teacher.name:教师姓名,score:总得分,grade.name:档次,tickets:参评人数,categoryRank:分类排名,departRank:开课院系排名,schoolRank:全校排名,"+
         "[#list stat_first.indicatorStats as i]indicator_score_${i.indicator.code}:${i.indicator.name}得分,indicator_rank_${i.indicator.code}:${i.indicator.name}排名[#if i_has_next],[/#if][/#list]",null,'fileName=课程评教统计'));
         [/#if]

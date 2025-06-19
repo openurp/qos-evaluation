@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.clazz.web.action.publik
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 import org.openurp.qos.evaluation.clazz.web.action.publik.CourseStatAction
 
 class DefaultModule extends BindModule {

@@ -18,8 +18,8 @@
 package org.openurp.qos.evaluation.questionnaire.web.action
 
 import org.beangle.data.dao.EntityDao
-import org.beangle.web.action.support.{ActionSupport,RouteSupport}
-import org.beangle.web.action.view.View
+import org.beangle.webmvc.support.{ActionSupport,RouteSupport}
+import org.beangle.webmvc.view.View
 
 class EvaluationConfigAction(entityDao: EntityDao) extends ActionSupport with RouteSupport {
 

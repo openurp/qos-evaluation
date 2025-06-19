@@ -18,8 +18,8 @@
 package org.openurp.qos.evaluation.clazz.web.action.publik
 
 import org.beangle.data.dao.{EntityDao, OqlBuilder}
-import org.beangle.web.action.support.{ActionSupport, ParamSupport}
-import org.beangle.web.action.view.View
+import org.beangle.webmvc.support.{ActionSupport, ParamSupport}
+import org.beangle.webmvc.view.View
 import org.beangle.webmvc.support.action.EntityAction
 import org.openurp.base.model.{Project, Semester}
 import org.openurp.code.edu.model.CourseCategory

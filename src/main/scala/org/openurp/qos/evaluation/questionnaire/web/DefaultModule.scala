@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.questionnaire.web
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 import org.openurp.qos.evaluation.questionnaire.service.IndicatorService
 import org.openurp.qos.evaluation.questionnaire.web.action._
 

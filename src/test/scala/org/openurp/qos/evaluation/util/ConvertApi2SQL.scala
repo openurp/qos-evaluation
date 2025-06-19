@@ -27,8 +27,8 @@ import java.util as ju
 
 object ConvertApi2SQL {
   def main(args: Array[String]): Unit = {
-    //fetchFinal("202320242")
-    fetchOpenFeedback("202320241")
+    fetchFinal("202320242")
+    //fetchOpenFeedback("202320241")
   }
 
   def fetchOpenFeedback(semesterNo: String): Unit = {

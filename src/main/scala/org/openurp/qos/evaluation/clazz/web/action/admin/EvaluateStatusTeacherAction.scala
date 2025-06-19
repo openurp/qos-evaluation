@@ -20,7 +20,7 @@ package org.openurp.qos.evaluation.clazz.web.action.admin
 import org.beangle.commons.collection.Collections
 import org.beangle.data.dao.OqlBuilder
 import org.beangle.security.Securities
-import org.beangle.web.action.view.View
+import org.beangle.webmvc.view.View
 import org.beangle.webmvc.support.action.RestfulAction
 import org.openurp.base.hr.model.Teacher
 import org.openurp.base.model.{Project, Semester}

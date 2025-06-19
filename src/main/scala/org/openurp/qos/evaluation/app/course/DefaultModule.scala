@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.app.course
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 import org.openurp.qos.evaluation.app.course.service.StdEvaluateSwitchService
 
 class DefaultModule extends  BindModule {

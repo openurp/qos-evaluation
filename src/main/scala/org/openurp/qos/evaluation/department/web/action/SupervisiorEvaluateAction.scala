@@ -17,13 +17,14 @@
 
 package org.openurp.qos.evaluation.department.web.action
 
+import org.beangle.commons.activation.MediaTypes
 import org.beangle.commons.collection.{Collections, Order}
 import org.beangle.commons.lang.ClassLoaders
 import org.beangle.data.dao.OqlBuilder
 import org.beangle.doc.transfer.importer.ImportSetting
 import org.beangle.doc.transfer.importer.listener.ForeignerListener
-import org.beangle.web.action.view.{Stream, View}
 import org.beangle.webmvc.support.action.{ImportSupport, RestfulAction}
+import org.beangle.webmvc.view.{Stream, View}
 import org.openurp.base.hr.model.Teacher
 import org.openurp.base.model.{Department, Project, Semester}
 import org.openurp.edu.clazz.model.Clazz
@@ -133,7 +134,7 @@ class SupervisiorEvaluateAction extends RestfulAction[SupervisiorEvaluate], Impo
   }
 
   def importTemplate(): View = {
-    Stream(ClassLoaders.getResourceAsStream("supervisiorEvaluate.xls").get, "application/vnd.ms-excel", "评教结果.xls")
+    Stream(ClassLoaders.getResourceAsStream("supervisiorEvaluate.xls").get, MediaTypes.ApplicationXlsx, "评教结果.xlsx")
   }
 
   override protected def getQueryBuilder: OqlBuilder[SupervisiorEvaluate] = {

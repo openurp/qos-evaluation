@@ -17,14 +17,15 @@
 
 package org.openurp.qos.evaluation.department.web.action
 
+import org.beangle.commons.activation.MediaTypes
 import org.beangle.commons.collection.{Collections, Order}
 import org.beangle.commons.lang.ClassLoaders
 import org.beangle.data.dao.OqlBuilder
 import org.beangle.doc.transfer.importer.ImportSetting
 import org.beangle.doc.transfer.importer.listener.ForeignerListener
 import org.beangle.security.Securities
-import org.beangle.web.action.view.{Stream, View}
 import org.beangle.webmvc.support.action.{ImportSupport, RestfulAction}
+import org.beangle.webmvc.view.{Stream, View}
 import org.openurp.base.hr.model.Teacher
 import org.openurp.base.model.{Department, Project, Semester}
 import org.openurp.edu.clazz.model.Clazz
@@ -134,7 +135,7 @@ class DepartEvaluateAction extends RestfulAction[DepartEvaluate], ImportSupport[
   }
 
   def importTemplate(): View = {
-    Stream(ClassLoaders.getResourceAsStream("departEvaluate.xls").get, "application/vnd.ms-excel", "评教结果.xls")
+    Stream(ClassLoaders.getResourceAsStream("departEvaluate.xls").get, MediaTypes.ApplicationXlsx, "评教结果.xls")
   }
 
   override protected def getQueryBuilder: OqlBuilder[DepartEvaluate] = {

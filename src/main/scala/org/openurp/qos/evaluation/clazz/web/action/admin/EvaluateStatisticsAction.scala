@@ -19,8 +19,8 @@ package org.openurp.qos.evaluation.clazz.web.action.admin
 
 import org.beangle.commons.collection.Collections
 import org.beangle.data.dao.OqlBuilder
-import org.beangle.web.action.support.ServletSupport
-import org.beangle.web.action.view.View
+import org.beangle.webmvc.support.ServletSupport
+import org.beangle.webmvc.view.View
 import org.openurp.base.hr.model.Teacher
 import org.openurp.base.model.{Department, Project, Semester}
 import org.openurp.edu.clazz.model.Clazz

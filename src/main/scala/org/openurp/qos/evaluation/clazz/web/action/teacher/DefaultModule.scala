@@ -17,7 +17,7 @@
 
 package org.openurp.qos.evaluation.clazz.web.action.teacher
 
-import org.beangle.cdi.bind.BindModule
+import org.beangle.commons.cdi.BindModule
 
 class DefaultModule extends BindModule {
   override protected def binding(): Unit = {
