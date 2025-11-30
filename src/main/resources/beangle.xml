@@ -1,0 +1,32 @@
+<beangle xmlns="http://beangle.github.io/schema/framework"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://beangle.github.io/schema/framework http://beangle.github.io/schema/framework-1.0.xsd">
+
+  <ems app-name="qos-evaluation-webapp"/>
+  <cdi>
+    <module class="org.openurp.starter.web.ProjectModule"/>
+    <module class="org.openurp.qos.evaluation.app.course.DefaultModule"/>
+    <module class="org.openurp.qos.evaluation.department.web.EvaluateModule"/>
+    <module class="org.openurp.qos.evaluation.questionnaire.web.DefaultModule"/>
+    <module class="org.openurp.qos.evaluation.clazz.web.action.admin.DefaultModule"/>
+    <module class="org.openurp.qos.evaluation.clazz.web.action.teacher.DefaultModule"/>
+    <module class="org.openurp.qos.evaluation.clazz.web.action.publik.DefaultModule"/>
+    <module class="org.openurp.qos.evaluation.clazz.web.action.student.DefaultModule"/>
+  </cdi>
+
+  <orm>
+    <mapping class="org.openurp.qos.evaluation.app.department.model.DefaultMapping"/>
+    <naming>
+      <profile package="org.openurp.qos.evaluation.app" pluralize="true" schema="app"/>
+    </naming>
+  </orm>
+
+  <mvc>
+    <profile package="org.openurp.qos.evaluation.*.web.action">
+      <url path="/" suffix="" style="seo"/>
+      <interceptor name="web.Interceptor.hibernate"/>
+      <interceptor name="web.Interceptor.security"/>
+    </profile>
+  </mvc>
+
+</beangle>

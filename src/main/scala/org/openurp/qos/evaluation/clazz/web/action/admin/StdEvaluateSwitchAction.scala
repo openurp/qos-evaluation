@@ -21,7 +21,7 @@ import org.beangle.data.dao.OqlBuilder
 import org.beangle.webmvc.view.View
 import org.openurp.base.model.{Project, Semester}
 import org.openurp.edu.clazz.model.Clazz
-import org.openurp.qos.evaluation.app.course.model.StdEvaluateSwitch
+import org.openurp.qos.evaluation.clazz.config.StdEvaluateSwitch
 import org.openurp.qos.evaluation.clazz.model.QuestionnaireClazz
 import org.openurp.qos.evaluation.clazz.web.action.admin.ProjectRestfulAction
 
@@ -56,7 +56,7 @@ class StdEvaluateSwitchAction extends ProjectRestfulAction[StdEvaluateSwitch] {
   }
 
   override def editSetting(entity: StdEvaluateSwitch): Unit = {
-    val project =getProject
+    val project = getProject
     val query = OqlBuilder.from(classOf[Semester], "s").where("s.calendar =:calendar ", project.calendar)
     put("semesters", entityDao.search(query))
     put("project", project)

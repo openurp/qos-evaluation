@@ -20,10 +20,10 @@ package org.openurp.qos.evaluation.clazz.web.action.admin
 import org.beangle.data.dao.OqlBuilder
 import org.beangle.webmvc.view.View
 import org.openurp.base.model.Project
-import org.openurp.qos.evaluation.app.course.model.TextEvaluateSwitch
+import org.openurp.qos.evaluation.clazz.config.FeedbackSwitch
 import org.openurp.qos.evaluation.clazz.web.action.admin.ProjectRestfulAction
 
-class TextEvaluateSwitchAction extends ProjectRestfulAction[TextEvaluateSwitch] {
+class FeedbackSwitchAction extends ProjectRestfulAction[FeedbackSwitch] {
 
   protected override def indexSetting(): Unit = {
     given project: Project = getProject
@@ -34,21 +34,20 @@ class TextEvaluateSwitchAction extends ProjectRestfulAction[TextEvaluateSwitch] 
   override def search(): View = {
     val opened = getBoolean("opened")
     val semesterId = getInt("semester.id")
-    val textEvaluationSwitchs = OqlBuilder.from(classOf[TextEvaluateSwitch], "textEvaluateSwitch")
-    semesterId.foreach { semesterId => textEvaluationSwitchs.where("textEvaluateSwitch.semester.id=:semesterId", semesterId) }
-    opened.foreach { opened => textEvaluationSwitchs.where("textEvaluateSwitch.opened=:opened", opened) }
-    textEvaluationSwitchs.where("textEvaluateSwitch.project=:project", getProject)
+    val textEvaluationSwitchs = OqlBuilder.from(classOf[FeedbackSwitch], "feedbackSwitch")
+    semesterId.foreach { semesterId => textEvaluationSwitchs.where("feedbackSwitch.semester.id=:semesterId", semesterId) }
+    textEvaluationSwitchs.where("feedbackSwitch.project=:project", getProject)
     put("textEvaluationSwitchs", entityDao.search(textEvaluationSwitchs))
     forward()
   }
 
-  override def saveAndRedirect(evaluateSwitch: TextEvaluateSwitch): View = {
+  override def saveAndRedirect(evaluateSwitch: FeedbackSwitch): View = {
     if (!evaluateSwitch.persisted) {
-      val query = OqlBuilder.from(classOf[TextEvaluateSwitch], "textEvaluateSwitch")
-      query.where("textEvaluateSwitch.semester.id =:semesterId", evaluateSwitch.semester.id)
-      val textEvaluateSwitchs = entityDao.search(query)
-      if (!textEvaluateSwitchs.isEmpty) {
-        return redirect("search", "&textEvaluateSwitch.semester.id=" + evaluateSwitch.semester.id, "该学期评教开关已存在,请删除后再新增!")
+      val query = OqlBuilder.from(classOf[FeedbackSwitch], "feedbackSwitch")
+      query.where("feedbackSwitch.semester.id =:semesterId", evaluateSwitch.semester.id)
+      val feedbackSwitchs = entityDao.search(query)
+      if (!feedbackSwitchs.isEmpty) {
+        return redirect("search", "&feedbackSwitch.semester.id=" + evaluateSwitch.semester.id, "该学期评教开关已存在,请删除后再新增!")
       }
     }
     try {

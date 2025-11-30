@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.form name="textEvaluateSwitchSearchForm" action="!search" target="contentDiv"]
+[@b.form name="feedbackSwitchSearchForm" action="!search" target="contentDiv"]
     [@b.grid items=textEvaluationSwitchs var="evaluateSwitch" sortable="true"]
         [@b.gridbar title="文字评教开关列表"]
             bar.addItem("${b.text('action.add')}",action.add());

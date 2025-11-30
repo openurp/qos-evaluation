@@ -34,7 +34,7 @@ class DefaultModule extends BindModule {
     bind(classOf[StdEvaluateSwitchAction])
     bind(classOf[StdEvaluateSwitchService])
     // 评教设置->文字评教开关
-    bind(classOf[TextEvaluateSwitchAction])
+    bind(classOf[FeedbackSwitchAction])
 
     //  评教管理->问卷有效性--------------查看全部学生评教问卷并设置有效或无效
     bind(classOf[EvaluateResultAction])

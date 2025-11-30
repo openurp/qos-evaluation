@@ -17,11 +17,11 @@
 
 package org.openurp.qos.evaluation.app.course.service
 
-import java.time.Instant
-
 import org.beangle.data.dao.{EntityDao, OqlBuilder}
 import org.openurp.base.model.{Project, Semester}
-import org.openurp.qos.evaluation.app.course.model.StdEvaluateSwitch
+import org.openurp.qos.evaluation.clazz.config.StdEvaluateSwitch
+
+import java.time.Instant
 
 class StdEvaluateSwitchService(entityDao: EntityDao) {
 

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<orm>
-  <mapping class="org.openurp.qos.evaluation.app.department.model.DefaultMapping" />
-  <mapping class="org.openurp.qos.evaluation.app.course.model.DefaultMapping" />
-  <naming>
-    <profile package = "org.openurp.qos.evaluation.app" pluralize="true" schema="app"/>
-  </naming>
-</orm>

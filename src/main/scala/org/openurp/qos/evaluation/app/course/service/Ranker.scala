@@ -59,7 +59,7 @@ object Ranker {
     var score = sortedStates.head.score
     var i = 0
     // 100 100 100 100 100 100 100 99 99 99 98 98 97
-    //      1   1   1   1   1   1   1  8  8  8   11 11 12
+    // 1   1   1   1   1   1   1  8  8  8   11 11 12
     sortedStates foreach { x =>
       val rs = java.lang.Float.compare(x.score, score)
       i += 1

@@ -21,13 +21,13 @@ import org.beangle.commons.collection.Collections
 import org.beangle.commons.lang.Strings
 import org.beangle.data.dao.OqlBuilder
 import org.beangle.security.Securities
-import org.beangle.webmvc.view.View
 import org.beangle.webmvc.support.action.RestfulAction
+import org.beangle.webmvc.view.View
 import org.openurp.base.hr.model.Teacher
 import org.openurp.base.model.Semester
 import org.openurp.base.std.model.Student
 import org.openurp.edu.clazz.model.{Clazz, CourseTaker}
-import org.openurp.qos.evaluation.app.course.model.TextEvaluateSwitch
+import org.openurp.qos.evaluation.clazz.config.FeedbackSwitch
 import org.openurp.qos.evaluation.clazz.model.Feedback
 import org.openurp.starter.web.support.{ProjectSupport, StudentSupport}
 
@@ -97,7 +97,7 @@ class FeedbackAction extends StudentSupport {
       addMessage("找不到该课程!")
       return forward("errors")
     }
-    val textEvaluationSwitch = getSwitch()
+    val textEvaluationSwitch = getSwitch(clazz)
     if (null == textEvaluationSwitch) {
       addMessage("现在还没有开放文字评教!")
       forward("errors")
@@ -128,11 +128,9 @@ class FeedbackAction extends StudentSupport {
     entityDao.search(query)
   }
 
-  def getSwitch(): TextEvaluateSwitch = {
-    val iterator: Iterator[TextEvaluateSwitch] = entityDao.getAll(classOf[TextEvaluateSwitch]).iterator
-    if (iterator.hasNext)
-      iterator.next()
-    else new TextEvaluateSwitch()
+  def getSwitch(clazz: Clazz): FeedbackSwitch = {
+    val switches = entityDao.findBy(classOf[FeedbackSwitch], "project" -> clazz.project, "semester" -> clazz.semester)
+    switches.headOption.getOrElse(new FeedbackSwitch)
   }
 
   def saveTextEvaluate(): View = {
